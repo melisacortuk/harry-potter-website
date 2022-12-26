@@ -1,0 +1,606 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Della+Respira&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(31, 32%, 68%);
+  --first-color-alt: hsl(31, 30%, 80%);
+  --text-color: #FFF;
+  --body-color: #000;
+
+  /*========== Font and typography ==========*/
+  --body-font: 'Della Respira', serif;
+  --biggest-font-size: 2.25rem;
+  --normal-font-size: .938rem;
+}
+
+/* Responsive typography */
+@media screen and (min-width: 1024px) {
+  :root {
+    --biggest-font-size: 3.5rem;
+    --normal-font-size: 1rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  width: .4rem;
+  height: 4rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: hsl(30, 6%, 70%);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: hsl(31, 10%, 38%);
+  border-radius: 5rem;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1024px;
+  margin: 0 1.5rem;
+}
+
+.main {
+  overflow: hidden;
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  padding: 2rem 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav {
+  margin: 10px 0;
+}
+
+.nav-logo {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-item {
+  margin-right: 25px;
+}
+
+.nav-link {
+  color: var(--first-color);
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: var(--first-color-alt);
+}
+
+/*=== Dropdown ===*/
+.dropdown-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropdown-icon {
+  font-size: 1.8rem;
+  transition: .5s;
+}
+
+.dropdown-item {
+  margin: .5rem 0;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-link:hover > .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+.nav-toggle {
+  display: none;
+}
+
+@media screen and (max-width:768px) {
+  .nav-menu {
+    position: fixed;
+    width: 22%;
+    height: 40vh;
+    right: -100%;
+    background: #000;
+    border-radius: .5rem;
+    margin-right: 5rem;
+    top: 10%;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-item {
+    margin: 13px 0;
+  }
+
+  .nav-toggle {
+    display: inline-block;
+    position: absolute;
+    color: var(--first-color);
+    font-size: 1.5rem;
+    right: 15px;
+    top: 20%;
+  }
+
+  .nav-link {
+    font-size: 1.1rem;
+  }
+
+  .dropdown-link {
+    padding-bottom: 3rem;
+  }
+
+  .dropdown-menu {
+    transform: translateY(-50px);
+  }
+
+  .show-menu {
+    right: 0;
+  }
+}
+
+/*=============== HOME ===============*/
+.home {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.home-data {
+  position: absolute;
+  display: flex;
+  bottom: 10%;
+  z-index: 1;
+}
+
+.home-content {
+  margin: 0 3.5rem;
+  flex: 1;
+}
+
+.home-img {
+  width: 333px;
+  height: auto;
+  border: 1px solid var(--first-color-alt);
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.home-content:hover img {
+  transform: scale(1.1);
+}
+
+.home-content h3 {
+  padding: 0 3rem;
+}
+
+/*=============== MOVIE ===============*/
+.movie {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  margin: 3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+
+.movie-data {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 3rem 3rem;
+  gap: 40px;
+  z-index: 1;
+}
+
+.movie-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 180vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.movie-img {
+  width: 190px;
+  height: auto;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+.movie-order {
+  display: block;
+  width: 35px;
+  height: 35px;
+  font-size: 12.8px;
+  text-align: center;
+  border: 1px solid #dddd;
+  padding: .5rem .5rem;
+  margin: 1rem auto;
+  transform: rotate(-45deg);
+  justify-content: center;
+}
+
+
+.movie-title {
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--first-color);
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  transform: translateY(20px);
+}
+
+.movie-description {
+  padding-top: .5rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/*====== FANTASTIC MOVIE ======*/
+.fantastic {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+
+.fantastic-data {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 2.3rem 0;
+  gap: 40px;
+}
+
+.fantastic-img {
+  display: inline-block;
+  width: 190px;
+  height: auto;
+  border-radius: .5rem;
+}
+
+.fantastic-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--first-color);
+  text-transform: uppercase;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.fantastic-description {
+  padding-top: 1.2rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/*=============== BOOKS ===============*/
+.book {
+  position: relative;
+  width: 100%;
+  min-height: 120vh;
+  margin: 5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+
+.book-data {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 3rem 3rem;
+  gap: 40px;
+  z-index: 1;
+}
+
+.book-img {
+  width: 190px;
+  height: auto;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
+.book-title {
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--first-color);
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 2rem;
+  transform: translateY(10px);
+}
+
+.book-description {
+  padding-top: 1.2rem;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/*=============== HOGWARTS LEGACY ===============*/
+.hogwarts {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hogwarts-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.hogwarts-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hogwarts-title {
+  font-size: 3.5rem;
+  font-weight: 600;
+}
+
+.hogwarts-title-alt {
+  font-family: 1rem;
+  font-weight: 200;
+}
+
+.hogwarts-description {
+  text-align: center;
+  margin-top: .5rem;
+}
+
+.hogwarts-button {
+  color: #FFF;
+  background-color: #21354d;
+  padding: .6rem 1.1rem;
+  border-radius: 2rem;
+  margin-top: 3rem;
+  box-shadow: 0 6px 15px hsla(213, 50%, 60%, .6);
+}
+
+.hogwarts-button:hover {
+  background-color: hsl(213, 65%, 65%);
+  transition: all 1s ease;
+}
+
+.hogwarts-content {
+  position: relative;
+  width: 100%;
+  min-height: 120vh;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.hogwarts-img {
+  width: 490px;
+  height: auto;
+  top: 36%;
+}
+
+.hogwarts-text {
+  width: 40%;
+  padding: 2rem 2rem;
+  border: .5px solid #d39e5a;
+}
+
+.hogwarts-text h3 {
+  font-size: 1.6rem;
+}
+
+.hogwarts-text p {
+  font-size: 1.1rem;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width:330px) {
+  .container {
+    margin: 0 1rem;
+  }
+
+  .home {
+    width: 100%;
+    min-height: 170vh;
+  }
+
+  .dot {
+    visibility: hidden;
+  }
+
+  .home-data {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    top: 15%;
+    margin: 0 1rem;
+  }
+
+  .home-content {
+    margin: 0 .8rem;
+  }
+
+  .home-content h3 {
+    padding: 0 .5rem;
+  }
+
+  .fantastic-container {
+    margin: 0 3rem;
+    padding: 1.2rem;
+  }
+
+  .hogwarts-content {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .hogwarts-text {
+    width: 70%;
+    padding: .2rem .8rem;
+    margin: 0 auto;
+  }
+
+  .hogwarts-title {
+    font-size: 1.2rem;
+  }
+
+  .hogwarts-text p {
+    font-size: 1rem;
+  }
+}
+
+/* For medium devices */
+@media screen and (max-width: 767px) {
+  .home-data {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    top: 40%;
+    margin: 0 2rem;
+  }
+
+  .home-content {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .home-content h3 {
+    padding: 0 .2rem;
+  }
+
+  .nav-toggle {
+    right: 10%;
+  }
+
+  .movie-data,
+  .fantastic-data,
+  .book-data {
+    width: 90%;
+    margin: 0 20%;
+  }
+
+  .hogwarts-content {
+   display: flex;
+   flex-wrap: wrap;
+   margin: 0 auto;
+  }
+
+  .hogwarts-img {
+    margin: 1rem auto;
+  }
+
+  .hogwarts-text {
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  .hogwarts-title {
+    font-size: 1.2rem;
+  }
+
+  .hogwarts-text p {
+    font-size: 1rem;
+  }
+}
